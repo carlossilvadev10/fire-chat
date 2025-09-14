@@ -1,17 +1,18 @@
-import { useAuth, useUser } from "reactfire";
+import { useAuthActions } from "@/hooks/useAuthActions";
+import { useUser } from "reactfire";
 
 const DashboardPage = () => {
-    const auth = useAuth();
-    const {data: user} = useUser();
+    const { data: user } = useUser();
+    const { logout } = useAuthActions();
 
     return (
-        <div>
+        <div className = "container mx-auto p-4">
             <h1>
                 Dashboard page
             </h1>
             <p>Bienvenido, {user?.displayName || "Supongo"}</p>
             <p>Correo: {user?.email || "No provisto"}</p>
-            <button onClick = {() => auth.signOut()}>
+            <button onClick = {logout}>
                 Cerrar sesión
             </button>
         </div>
