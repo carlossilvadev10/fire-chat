@@ -9,8 +9,10 @@ const AuthLayout = () => {
     if (status === "success" && signInCheckResult.signedIn) return <Navigate to = "/admin" replace />
 
     return (
-        <div>
-            <Outlet />
+        <div className = "flex items-center justify-center min-h-screen bg-gray-50">
+            <div className = "max-w-md w-full">
+                <Outlet />
+            </div>
         </div>
     )
 }
