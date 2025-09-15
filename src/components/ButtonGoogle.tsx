@@ -14,9 +14,9 @@ const ButtonGoogle = ({ type, loading }: Props) => {
     const handleLoginWithGoogle = async () => {
         const result = await loginWithGoogle();
         if (result.success) {
-            toast.success("Login successfull");
+            toast.success("Inicio de sesión exitoso");
         } else {
-            toast.error("Login failed");
+            toast.error("Error al iniciar sesión");
         }
     }
 
