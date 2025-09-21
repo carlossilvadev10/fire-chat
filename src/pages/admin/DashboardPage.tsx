@@ -6,12 +6,12 @@ const DashboardPage = () => {
     const { logout } = useAuthActions();
 
     return (
-        <div className = "container mx-auto p-4">
+        <div className = "">
             <h1>
                 Dashboard page
             </h1>
-            <p>Bienvenido, {user?.displayName || "Supongo"}</p>
-            <p>Correo: {user?.email || "No provisto"}</p>
+            <p>Bienvenido, {user!.displayName || "Supongo"}</p>
+            <p>Correo: {user!.email || "No provisto"}</p>
             <button onClick = {logout}>
                 Cerrar sesión
             </button>

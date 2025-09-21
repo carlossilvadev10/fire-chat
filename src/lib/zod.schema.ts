@@ -15,5 +15,11 @@ export const registerZodSchema = z.object({
     path: ["confirmPassword"],
 });
 
+export const profileZodSchema = z.object({
+    displayName: z.string().min(1, "El nombre es obligatorio.").max(50, "El nombre no puede tener más de 50 caracteres."),
+    photoURL: z.union([z.url("Invalid URL format"), z.literal("")]).optional(),
+});
+
 export type loginZodSchemaType = z.infer<typeof loginZodSchema>;
 export type registerZodSchemaType = z.infer<typeof registerZodSchema>;
+export type profileZodSchemaType = z.infer<typeof profileZodSchema>;

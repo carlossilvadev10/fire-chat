@@ -10,6 +10,7 @@ import ProfilePage from "./pages/admin/ProfilePage";
 import ChatPage from "./pages/admin/ChatPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
+import TaskPage from "./pages/admin/TaskPage";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route index element = {<DashboardPage />} />
           <Route path = "profile" element = {<ProfilePage />} />
           <Route path = "chat" element = {<ChatPage />} />
+          <Route path = "task" element = {<TaskPage />} />
         </Route>
         {/* Auth */}
         <Route path = "auth" element = {<AuthLayout />}>
