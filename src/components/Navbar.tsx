@@ -1,5 +1,5 @@
 import { useAuthActions } from "@/hooks/useAuthActions";
-import { LayoutDashboard, LogOut, MessageCircle, User } from "lucide-react";
+import { ClipboardCheck, LayoutDashboard, LogOut, MessageCircle, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import { Button } from "./ui/button";
@@ -22,6 +22,12 @@ const navigation = [
         name: "Perfil",
         href: "/admin/profile",
         icon: User,
+    },
+    {
+        id: 4,
+        name: "Tareas",
+        href: "/admin/task",
+        icon: ClipboardCheck,
     },
 ]
 

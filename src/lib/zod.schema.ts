@@ -20,6 +20,12 @@ export const profileZodSchema = z.object({
     photoURL: z.union([z.url("Invalid URL format"), z.literal("")]).optional(),
 });
 
+export const taskZodSchema = z.object({
+    title: z.string().min(1, "El título es obligatorio.").max(100, "El título no puede tener más de 100 caracteres."),
+    description: z.string().max(500, "El título no puede tener más de 500 caracteres.").optional(),
+});
+
 export type loginZodSchemaType = z.infer<typeof loginZodSchema>;
 export type registerZodSchemaType = z.infer<typeof registerZodSchema>;
 export type profileZodSchemaType = z.infer<typeof profileZodSchema>;
+export type taskZodSchemaType = z.infer<typeof taskZodSchema>;

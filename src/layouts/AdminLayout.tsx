@@ -11,7 +11,7 @@ const AdminLayout = () => {
     if (status === "success" && !signInCheckResult.signedIn) return <Navigate to = "/auth/login" replace />
 
     return (
-        <Suspense fallback = { <div>Cargando usuario...</div> }>
+        <Suspense fallback = {<div>Cargando usuario...</div>}>
             <AuthenticatedLayout />
         </Suspense>
     )
