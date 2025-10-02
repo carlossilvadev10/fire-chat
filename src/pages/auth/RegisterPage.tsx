@@ -27,7 +27,7 @@ const RegisterPage = () => {
         const response = await register(data);
 
         if (response.error) {
-            toast.error("Error al registrar cuenta");
+            toast.error("Error al registrar cuenta"+response.error);
             if (response.error.code === "auth/email-already-in-use") {
                 form.setError("email", {
                     type: "manual",

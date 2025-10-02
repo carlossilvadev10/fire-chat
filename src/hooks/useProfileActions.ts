@@ -2,10 +2,12 @@ import { updateProfile, type AuthError } from "firebase/auth";
 import { useState } from "react";
 import { useUser } from "reactfire";
 import { toast } from "sonner";
+import { useUserActions } from "./useUserActions";
 
 export const useProfileAction = () => {
     const [loading, setLoading] = useState(false);
     const { data: user } = useUser();
+    const {createOrUpdateUser} = useUserActions();
 
     const updateUserProfile = async (profileData: {
         displayName?: string;
@@ -15,9 +17,7 @@ export const useProfileAction = () => {
 
         try {
              // Validar que el usuario esté autenticado
-            if (!user) {
-                throw new Error("El usuario no está autenticado");
-            }
+            if (!user) throw new Error("El usuario no está autenticado");
 
             // Actualizar el perfil en Firebase Auth
             await updateProfile(user, {
@@ -25,8 +25,11 @@ export const useProfileAction = () => {
                 photoURL: profileData.photoURL || user.photoURL,
             });
 
-            // // Sincronizar los cambios con Firestore
-            // await createOrUpdateUser(user);
+            // Sincronizar los cambios con Firestore
+            await createOrUpdateUser({
+                ...user,
+                ...profileData,
+            });
 
             // Recargar el usuario para que ReactFire detecte los cambios
             await user.reload();

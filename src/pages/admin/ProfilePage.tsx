@@ -4,9 +4,7 @@ import { useUser } from "reactfire";
 const ProfilePage = () => {
     const { data: user } = useUser();
 
-    if (!user) {
-        return <div className = "text-red-500">Cargando...</div>
-    }
+    if (!user) return <div className = "text-red-500">Cargando...</div>;
 
     return (
         <div>

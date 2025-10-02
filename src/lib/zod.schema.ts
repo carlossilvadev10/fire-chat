@@ -25,7 +25,12 @@ export const taskZodSchema = z.object({
     description: z.string().max(500, "El título no puede tener más de 500 caracteres.").optional(),
 });
 
+export const messageZodSchema = z.object({
+    text: z.string().trim().min(1, "Escriba algo por favor."),
+});
+
 export type loginZodSchemaType = z.infer<typeof loginZodSchema>;
 export type registerZodSchemaType = z.infer<typeof registerZodSchema>;
 export type profileZodSchemaType = z.infer<typeof profileZodSchema>;
 export type taskZodSchemaType = z.infer<typeof taskZodSchema>;
+export type messageZodSchemaType = z.infer<typeof messageZodSchema>;

@@ -7,9 +7,7 @@ export const useTaskActions = () => {
     const db = useFirestore();
     const taskCollectionRef = collection(db, "tasks");
 
-    if (!user) {
-        throw new Error("El usuario no está autenticado");
-    }
+    if (!user) throw new Error("El usuario no está autenticado");
 
     const tasksQuery = query(
         taskCollectionRef,
